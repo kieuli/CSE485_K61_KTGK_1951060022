@@ -18,19 +18,15 @@ if (!$conn) {
     }
 ?>
 
-
     <?php
         include('header.php');
     ?>
-    <?php $conn = mysqli_connect('localhost', 'root', '', 'qlmau');
-        if (!$conn) {
-            die("Kết nối thất bại  .Kiểm tra lại các tham số    khai báo kết nối");
-        }
+    <?php 
+    require ("connsql.php");
         if(isset($_GET['reci_id'])) {
             $id = $_GET['reci_id'];
-
-            $sql = "SELECT reci_id, reci_name, reci_age, reci_bgrp, reci_bqnty, reci_sex, reci_reg_date, reci_phno from blood_recipient;
-            $result = mysqli_query($conn, $sql);
+            $sql = "SELECT reci_id, reci_name, reci_age, reci_bgrp, reci_bqnty, reci_sex, reci_reg_date, reci_phno from blood_recipient";
+            $result = mysqli_query($conn, $sql); 
         }
     ?>
     <div class="container">
